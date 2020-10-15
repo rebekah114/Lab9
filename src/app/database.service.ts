@@ -28,8 +28,8 @@ export class DatabaseService {
     let url = "/movies/" + id;
     return this.http.delete(url, httpOptions);
   }
-  addActorsToMovie(movieId, actorId, data) {
-    let url = "/movies/" + movieId + "/actors/" + actorId;
+  addActorsToMovie(movieId, data) {
+    let url = "/movies/" + movieId + "/actors/";
     return this.http.post(url,data, httpOptions);
   }
 }

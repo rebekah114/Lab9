@@ -58,9 +58,9 @@ this.movieId=movieId._id;
 };
 
  addActors() { 
-    let objM = { id:this.movieId }; 
-    let objA={actors:this.actorId }
-    this.dbService.addActorsToMovie(this.movieId,objM,objA).subscribe(result => {
+    let data = { id:this.actorId }; 
+   
+    this.dbService.addActorsToMovie(this.movieId,data).subscribe(result => {
       this.onGetMovies();
     });
    }

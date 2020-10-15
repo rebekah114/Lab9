@@ -60,7 +60,7 @@ app.delete('/movies/:mId/:aId',movies.deleteActorFromList);
 //app.put('/addactor/:aid/movies/:mId',movies.addExistActorToMovie);
 app.get('/getmovieyears', movies.getMovieYears);
 app.delete('/deletemovieyear',movies.deleteMovieByYear);
-app.post('/movies/:movieId/actors/:actorId', movies.addActorsToMovie);
+app.post('/movies/:movieId/actors', movies.addActorsToMovie);
 //app.put()
 
 //app.get('/actorsage', getActorsByAge);
