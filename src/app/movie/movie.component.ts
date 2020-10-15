@@ -10,6 +10,7 @@ import { DatabaseService } from '../database.service';
 })
 export class MovieComponent implements OnInit {
   moviesDB: any[] = [];
+  actorsDB:any[]=[];
 
   section = 5; 
 
@@ -26,6 +27,11 @@ export class MovieComponent implements OnInit {
   onGetMovies() {
     this.dbService.getMovies().subscribe((data: any[]) => {
       this.moviesDB = data;
+    });
+  }
+  onGetActors() {
+    this.dbService.getActors().subscribe((data: any[]) => {
+      this.actorsDB = data;
     });
   }
   //Create a new Movie, POST request
@@ -62,6 +68,8 @@ this.movieId=movieId._id;
    
     this.dbService.addActorsToMovie(this.movieId,data).subscribe(result => {
       this.onGetMovies();
+      this.onGetActors();
+
     });
    }
 
@@ -85,10 +93,15 @@ this.movieId=movieId._id;
     this.movieId = "";
   }
   
- aYear=0;
+ startYear=0;
+ endYear=0;
 //Delete Movies produced before aYear///////////////////////////////CHECK
-  onDeleteMoviesYear(aYear){
-    this.moviesDB=this.moviesDB.filter(item=>item.year<= aYear);
+
+  deleteMoviesYear(item){
+    // this.moviesDB=this.moviesDB.filter(item=>item.year>=startYear && item.year<=endYear);
+    this.dbService.deleteMoviesYear(item._id).subscribe(result => {
+      this.onGetMovies();
+    });
   }
 
 }

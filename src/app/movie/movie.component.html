@@ -62,7 +62,7 @@
         <td>{{actor._id}}</td>
         <td>{{actor.name}}</td>
         <td>{{actor.bYear}}</td>
-        <td><button type="submit" class="btn btn-primary" (click)="selectActorId(actor)">Select</button></td>
+        <td><button type="submit" class="btn btn-primary" (click)="selectActor(actor)">Select</button></td>
       </tr>                                                      
 </table>
 
@@ -80,7 +80,7 @@
         <td>{{movie.title}}</td>
         <td>{{movie.year}}</td>
         <td>{{movie.actors}}</td>
-        <td><button type="submit" class="btn btn-primary" (click)="selectMovieId(movie)">Select</button></td><!--FIX do i then need to pass to items to the method om .ts-->
+        <td><button type="submit" class="btn btn-primary" (click)="selectMovie(movie)">Select</button></td><!--FIX do i then need to pass to items to the method om .ts-->
     </tr>
 </table><!--FIX-->
     
@@ -127,8 +127,14 @@
         </tr>
       </table>
     <div class="form-group">
-        <label for="year">Year</label>
-        <input type="number" class="form-control" id="year" [(ngModel)]="year">
+        <label for="startYear">Start Year</label>
+        <input type="number" class="form-control" id="startYear" [(ngModel)]="startYear">
       </div>
-      <button type="submit" class="btn btn-primary" (click)="deleteMoviesYear(item.year)">Delete Movie By Year</button><!--Year undefined?-->
+      <div class="form-group">
+      <label for="yearEnd">End Year</label>
+      <input type="number" class="form-control" id="yearEnd" [(ngModel)]="yearEnd">
+    </div>
+
+      <button type="submit" class="btn btn-primary" (click)="deleteMoviesYear(item)">Delete Movie By Year</button>
+      <!-- Year undefined? -->
   </div>

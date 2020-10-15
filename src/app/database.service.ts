@@ -24,14 +24,22 @@ export class DatabaseService {
     let url = "/movies/" + id;
     return this.http.delete(url, httpOptions);
   }
-  onDeleteMoviesYear(id) {
+  deleteMoviesYear(id) {
     let url = "/movies/" + id;
     return this.http.delete(url, httpOptions);
   }
   addActorsToMovie(movieId, data) {
-    let url = "/movies/" + movieId + "/actors/";
+    let url = "/movies/" + movieId + "/actors";
     return this.http.post(url,data, httpOptions);
   }
+  getActors() {
+    return this.http.get("/actors");
+  }
+  getActor(id: string) {
+    let url = "/actors/" + id;
+    return this.http.get(url);
+  }
+  
 }
 // updateMovie(id, data) {
 //     let url = "/movies/" + id;
